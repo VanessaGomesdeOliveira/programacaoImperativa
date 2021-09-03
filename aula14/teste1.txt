@@ -1,0 +1,1 @@
+{"fruta":"banana","preço":8.50,"tipo":["prata","maça","nanica","da terra","ouro"],"origem":"brasil"}

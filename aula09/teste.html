@@ -1,0 +1,126 @@
+Contrate um programador
+Navegue
+TESTE GRÁTIS
+Buscar
+
+Artigo
+Invista em você! Saiba como a DevMedia pode ajudar sua carreira.
+Date JavaScript - Trabalhando com data e hora em JS
+Veja neste artigo quais são e como utilizar os métodos disponíveis no JavaScript para lidar com datas e horários em páginas web.
+TIRAR DÚVIDA
+ANOTAÇÕES
+FAVORITAR
+CONCLUÍDO
+21GOSTEI
+21
+
+Tire sua dúvida
+
+Marcar como concluído
+
+Anotar
+Artigos
+JavaScript
+Date JavaScript - Trabalhando com data e hora em JS
+Você conhece a função Date no Javascript?
+Esse código logo abaixo, apresenta como mostrar a data atual de forma mais bruta possível. Ela é quase inutilizável, de tão bruta (simples), mas quem ainda não sabe comandar eventos de data em JavaScript, deve começar por aqui.
+
+Relacionado: Curso completo de JavaScript
+
+<html>
+<head>
+</head>
+<body>
+<script language=javascript type="text/javascript">
+now = new Date
+document.write ("Hoje é " + now.getDay() + ", " + now.getDate() + " de " + now.getMonth() + " de " + now.getFullYear() )
+</script>
+</body>
+</html>
+Listagem 1. Código bruto de como mostrar a data atual
+data bruta
+Figura 1. Como ficaria a data bruta
+
+Explicando o código:
+
+now = new Date
+Essa primeira linha do código irá criar uma nova variável de data now com o comando new Date, que instrui o JavaScript a criar um novo objeto date e preenche-lo com a data atual.
+
+document.write ("Hoje é " + now.getDay() + ", " + now.getDate() + " de " + now.getMonth() + " de " + now.getFullYear() )
+Nessa próxima parte do código, vamos chamar o método document.write, que tem a função de escrever na tela. Dentro, nós colocaremos o código principal, responsável pela criação das datas. O que se encontra dentro de aspas, a partir de agora, será um texto; e o que estiver fora de aspas, será o tal código que deveremos estudar.
+
+O getDay() irá mostrar o dia da semana. É preciso saber que no JavaScript, na maioria das vezes, uma contagem começa com o número zero. Então, domingo vale zero, segunda vale um, terça vale dois, e assim por diante.
+
+O getDate(), por sua vez, equivale ao dia do mês, não tendo a mesma regra de antes de só começar em zero.
+
+Já o getMonth() e o getFullYear(), equivalem, respectivamente, ao mês e ao ano, e o mês, como o dia da semana, começa em zero, logo, julho não é mês sete, mas mês seis.
+
+É lógico que em um site decente, o usuário não será obrigado a saber disso, por isso, nós criaremos arrays, que são conjuntos de informações compactas.
+
+
+Apresentando datas usando arrays
+Nesse código, eu criarei dois arrays, um para os dias da semana, e outro para os dias dos meses.
+
+<html>
+<head>
+<script language=javascript type="text/javascript">
+dayName = new Array ("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+monName = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+now = new Date
+</script>
+</head>
+<body>
+<script language=javascript type="text/javascript">
+document.write ("<h1> Hoje é " + dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName [now.getMonth() ]   +  " de "  +     now.getFullYear () + ". </h1>")
+</script>
+</body>
+</html>
+Listagem 2. Usando arrays para apresentar os dias
+Explicando o código:
+
+dayName = new Array ("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+monName = new Array ("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+Essa é a parte do código em que criamos os arrays. No primeiro array, eu dei nomes para os dias da semana. Zero agora será domingo, um será segunda, e assim por diante. Do mesmo modo com os nomes dos meses.
+
+document.write ("<h1> Hoje é " + dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName [now.getMonth() ]   +  " de "  +     now.getFullYear () + ". </h1>")
+Dentro de document.write, pomos o nome da array que será utilizada, e logo depois, entre colchetes, pomos a função que retorna o índice do dia e do mês no vetor.
+
+Resultado da apresentação de datas usando alguns arrays
+Figura 2. Resultado da apresentação de datas usando alguns arrays
+
+saiba mais Saiba mais sobre objetos e vetores em JavaScript
+Trabalhando com horários
+Até agora, só foi apresentado como mostrar datas. Agora, será como apresentar horários.
+
+<html>
+<head>
+</head>
+<body>
+<script language=javascript type="text/javascript">
+now = new Date
+document.write ( "Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() )
+</script>
+</body>
+</html>
+Listagem 3. Apresentando horários
+Trabalhando com horários em tempo real
+No código anterior, mostrei como apresentar horários, mas eles são fixos. Ou seja, praticamente inúteis, mas devemos aprender primeiramente do jeito mais fácil para passar ao mais difícil, que é esse, que apresenta o horário em tempo real, ou seja, que se altera conforme o tempo passa.
+
+<html>
+<head>
+<script type="text/javascript">
+function time()
+{
+today=new Date();
+h=today.getHours();
+m=today.getMinutes();
+s=today.getSeconds();
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+setTimeout('time()',500);
+}
+</script>
+</head>
+<body onload="time()">
+<div id="txt"></div>
+</body>
+</html>
